@@ -10,7 +10,7 @@ function App() {
       <div className="max-w-2xl w-full space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl">Aplicación de Prueba</CardTitle>
+            <CardTitle className="text-3xl">Aplicación de Pruebaa</CardTitle>
             <CardDescription>
               Aplicación básica con Vite + React + shadcn/ui para prueba de despliegue en Firebase
             </CardDescription>
