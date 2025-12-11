@@ -84,6 +84,43 @@ git remote add origin <tu-repositorio-github>
 git push -u origin main
 ```
 
+## 🤖 Despliegue Automático con GitHub Actions
+
+El proyecto está configurado con GitHub Actions para desplegar automáticamente en Firebase Hosting cuando se hace push a la rama `main`.
+
+### Configuración del Secret de Firebase
+
+Para que GitHub Actions pueda desplegar en Firebase, necesitas configurar un secret:
+
+1. **Obtener la cuenta de servicio de Firebase:**
+   - Ve a [Firebase Console](https://console.firebase.google.com/)
+   - Selecciona tu proyecto (`testdeployvite`)
+   - Ve a **Configuración del proyecto** (ícono de engranaje) → **Cuentas de servicio**
+   - Haz clic en **Generar nueva clave privada**
+   - Se descargará un archivo JSON con las credenciales
+
+2. **Agregar el secret en GitHub:**
+   - Ve a tu repositorio en GitHub: `https://github.com/ader148/testDeployViteFirebase`
+   - Ve a **Settings** → **Secrets and variables** → **Actions**
+   - Haz clic en **New repository secret**
+   - Nombre: `FIREBASE_SERVICE_ACCOUNT`
+   - Valor: Copia y pega el contenido completo del archivo JSON descargado
+   - Haz clic en **Add secret**
+
+3. **¡Listo!** Ahora cada vez que hagas push a `main`, GitHub Actions:
+   - Construirá automáticamente la aplicación
+   - La desplegará en Firebase Hosting
+   - Puedes ver el progreso en la pestaña **Actions** de tu repositorio
+
+### Despliegue Manual (alternativa)
+
+Si prefieres desplegar manualmente:
+
+```bash
+npm run build
+firebase deploy --only hosting
+```
+
 ## 📁 Estructura del Proyecto
 
 ```
